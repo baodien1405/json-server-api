@@ -1,0 +1,60 @@
+@baseUrl=http://localhost:3000/api
+@resourceName=products
+
+# Categories
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=900
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=tasty
+
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=10
+
+
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "categoryId": "2854cf5e-2485-475a-9708-c07074cf8652",
+    "name": "Intelligent Soft Mouse",
+    "color": "gold",
+    "price": 898,
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "thumbnailUrl": "http://placeimg.com/400/400"
+}
+
+###
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/y2-PU47
+Content-Type: application/json
+
+{
+    "name": "Intelligent Soft Mouse",
+    "color": "gold",
+    "price": 899
+}
+
+###
+
+# @name remove
+DELETE {{baseUrl}}/{{{resourceName}}/2
